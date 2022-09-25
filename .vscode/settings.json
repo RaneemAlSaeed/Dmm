@@ -1,0 +1,10 @@
+{
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "razor": "html",
+        "plaintext": "pug"
+    },
+    "emmet.preferences": {
+    
+    }
+}

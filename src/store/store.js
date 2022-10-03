@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import sideBar  from "./sideBarSlice";
 // import coursesSlice from './coursesSlice'
 // import librarySlice from './librarySlice'
 // import servicesSlice from './servicesSlice'
@@ -6,6 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
   reducer: {
+    sideBarState:sideBar
     // users:usersSlice,
     // courses:coursesSlice,
     // library:librarySlice,

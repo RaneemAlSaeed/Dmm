@@ -1,84 +1,11 @@
-import { Box, Grid, Paper } from "@mui/material";
-import React, { useState } from "react";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Gray, mainColor } from "../colors";
-
-export default function BigCartInDashboard(props) {
-  const [fav, setFav] = useState(false);
-  function handleFav() {
-    setFav(!fav);
-  }
-  return (
-    <Paper elevation={3} className="BigCartInDashboard">
-      <Grid
+ <Grid
         container
         direction="row"
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item md={5} >
-          <Box
-            className="BigCartInDashboard-img"
-            sx={{ backgroundColor: "red", height: "100%", width: "100%" }}
-          >
-           
-            <img src={props.img} alt="" width="100%" height="100%" />
-          </Box>
+        <Grid item md={6}>
+          <VideoComp/>
         </Grid>
-        <Grid item md={7}>
-          <Box className="BigCartInDashboard-details">
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <p className="SmallCart-details-title" style={{ color: Gray }}>
-                {props.title}
-
-                <p style={{ color: Gray }}>{props.price}</p>
-              </p>
-
-              {fav == true ? (
-                <FavoriteIcon
-                  sx={{
-                    color: "red",
-                    cursor: "pointer",
-                    fontSize: " 1.5020833333333vw",
-                  }}
-                  onClick={handleFav}
-                />
-              ) : (
-                <FavoriteBorderIcon
-                  sx={{
-                    color: Gray,
-                    cursor: "pointer",
-                    fontSize: " 1.5020833333333vw",
-                  }}
-                  onClick={handleFav}
-                />
-              )}
-            </Box>
-            <p className="SmallCart-details-desc" style={{ color: Gray }}>
-              {props.desc}{" "}
-            </p>
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-              sx={{}}
-            >
-              <Box>
-                <span>Price options:</span> <span>{props.PriceOptions}</span>
-              </Box>
-              <button
-                className="ask-about-button"
-                style={{ backgroundColor: mainColor }}
-              >
-                Ask about
-              </button>
-            </Grid>
-          </Box>
-        </Grid>
-        
+        <Grid item md={6}></Grid>
       </Grid>
-    </Paper>
-  );
-}

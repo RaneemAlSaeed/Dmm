@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Gray, mainColor, secColor, whiteColor } from "../colors";
+import { NavLink } from "react-router-dom";
 
 export default function BigCartInDashboard(props) {
   const [fav, setFav] = useState(false);
@@ -18,9 +19,11 @@ export default function BigCartInDashboard(props) {
         alignItems="flex-start"
       >
         <Grid item md={5}>
-          <Box sx={{ width: "100%", height: "13.4375vw" }}>
-            <img src={props.img} alt="" width="100%" height="100%" />
-          </Box>
+          <NavLink to="/product">
+            <Box sx={{ width: "100%", height: "13.4375vw" }}>
+              <img src={props.img} alt="" width="100%" height="100%" />
+            </Box>
+          </NavLink>
         </Grid>
         <Grid item md={7}>
           <Box className="BigCartInDashboard-details">
@@ -60,37 +63,31 @@ export default function BigCartInDashboard(props) {
                 />
               )}
             </Box>
-             <Box className="SmallCart-details-desc" style={{ color: Gray }}>
+            <Box className="SmallCart-details-desc" style={{ color: Gray }}>
               {props.desc}{" "}
-            </Box> 
-           
+            </Box>
+
             <Grid
               container
               direction="row"
               justifyContent="space-between"
               alignItems="flex-start"
-             
             >
               <Grid item>
-            
-                  <span className="Price-options" style={{ color: mainColor }}>
-                    Price options:
-                  </span>{" "}
-                  <span className="Price-options" style={{ color: Gray }}>
-                    {props.PriceOptions}
-                  </span>
-               
+                <span className="Price-options" style={{ color: mainColor }}>
+                  Price options:
+                </span>{" "}
+                <span className="Price-options" style={{ color: Gray }}>
+                  {props.PriceOptions}
+                </span>
               </Grid>
               <Grid item>
-             
-             
-                  <button
-                    className="ask-about-button"
-                    style={{ backgroundColor: mainColor, color: whiteColor }}
-                  >
-                    Ask about
-                  </button>
-          
+                <button
+                  className="ask-about-button"
+                  style={{ backgroundColor: mainColor, color: whiteColor }}
+                >
+                  Ask about
+                </button>
               </Grid>
             </Grid>
           </Box>

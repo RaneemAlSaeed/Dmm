@@ -19,7 +19,7 @@ import RecipeReviewCard from "../components/DropsdownList";
 import Divider from "@mui/material/Divider";
 import Dashboard from "../components/Dashboard";
 import BigCartInDashboard from "../components/BigCartInDashboard";
-export default function Page2() {
+export default function Search() {
   return (
     <Box
       sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}

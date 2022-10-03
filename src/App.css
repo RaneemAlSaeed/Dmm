@@ -6,9 +6,18 @@
  
 
 }
+.cls{
+    border-radius:0px!important;
+    padding:0px!important;
+    width:100%!important;
+    left: 0px !important;
+   
+
+}
 
 button,a,Link{
     cursor: pointer;
+	text-decoration: none;
 }
 :root,body{
 	overflow-x: hidden;
@@ -21,6 +30,7 @@ background-color: #EEEEEE;
 	
 }
 .header{
+	/* position: relative; */
 	/* position: absolute; */
 width:100vw;
 height: 3.90625vw;
@@ -46,6 +56,14 @@ box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16)
 /* background-color: red; */
 	
 }
+.header-icons{
+	/* position: absolute; */
+	/* background-color: red; */
+	width: 9.65625vw;
+	/* top: 1vw; */
+	/* left: 0; */
+	
+}
 .desc{
 	font-family: 'Montserrat';
 font-style: normal;
@@ -65,46 +83,49 @@ height: 2.4479166666667vw;
 left: 50.625vw;
 top: 0.72291666666667vw;
 
-background: #FFFFFF;
+/* background: #FFFFFF; */
 display: flex;
 align-items: center;
 justify-content: center;
 }
-.search-text{
+.search-text,.search-text a input[type=text]{
 	/* background-color: #dbac91; */
-	width: 73%;
+	width: 73% ;
 	height: 100%;
-	position: absolute;
-	right: 7%;
+	/* position: absolute; */
+	/* right: 7%; */
 	border: none;
 	color: gray;
+	/* flex-grow: 1; */
 padding-left: 1%;
+font-size: 0.925vw;
+/* background-color: rgb(250, 209, 209); */
 
 }
-.search-Icon{
-	/* background-color: red; */
-
-position: absolute;
-/* font-size:  1.1458333333333vw; */
-/* height:1.1458333333333vw; */
-/* line-height: 1.1458333333333vw; */
-/* left: 90.15625vw; */
-right: 2%;
-/* color: #EB671B; */
-cursor: pointer;
-/* top: 15%; */
-
+.search-text a input[type=text]{
+	width: 100% ;
+}
+.search-text a input[type=text]:focus{
+	outline: none;
 }
 .search-text:focus{
 	outline: none;
 }
+.search-Icon{
+	/* background-color: red; */
+	height: 100%;
+	 /* width: 7%; */
+	 flex-grow: 1;
+	 display: flex;
+	 justify-content: center;
 
+	 align-items: center;
+}
 .category-name{
-	position: absolute;
-width:  8.59375vw;
+	/* position: absolute; */
+width:  8.6vw;
 height: 2.4479166666667vw;
-left: 50.625vw;
-top: 0.72291666666667vw;
+
 
 /* background: #F9EDE5; */
 display: flex;
@@ -112,16 +133,16 @@ justify-content: space-around;
 align-items: center;
 }
 .span-category-name{
-	width: 4.8958333333333vw;
+	/* width: 4.8958333333333vw; */
 	font-family: 'Montserrat';
 font-style: normal;
 font-weight: 400;
-font-size:  0.625vw;
+font-size:  0.765vw;
 line-height: 133%;
 
 /* identical to box height, or 133% */
 text-align: center;
-
+text-transform: capitalize;
 /* color: #EB671B; */
 }
 .BigCart{
@@ -304,4 +325,310 @@ font-size: 0.725vw;
 /* identical to box height, or  */
 
 
+}
+.stepper{
+	width: 100vw;
+	height: 28.75vw;
+	/* background-color: red; */
+}
+.Stepper-photo{
+	position: absolute;
+width:14.367708333333vw;
+height:12.7921875vw;
+left: 14.479166666667vw;
+top:  8.3791666666667vw;
+/* background-color: red; */
+/* display: flex;
+justify-content:center;
+flex-direction: column;
+align-items:center; */
+
+
+}
+.footer-Stepper-photo{
+	width:  15.197916666667vw;
+	height: 9.375vw;
+	/* background-color: red; */
+}
+.Stepper-desc-1{
+	color: white;
+	font-weight: 700;
+	/* font-size:; */
+	font-family: "Montserrat";
+	margin: 0.2vw 0;
+}
+.Stepper-desc-2{
+	color: white;
+	font-weight: 600;
+	/* font-size:0.725vw; */
+	font-family: "Montserrat";
+}
+.home-search-box-parent{
+	width: 100vw;
+	height: 5.2604166666667vw;
+display: flex;
+justify-content: center;
+align-items: center;	
+
+}
+.home-search-box{
+	/* position: absolute; */
+width:41.979166666667vw;
+height:  2.4541666666667vw;
+/* left:  29.010416666667vw;
+top:30.352604166667vw; */
+/* background-color: rgb(238, 208, 208); */
+
+
+}
+.NewProductsArrivedBox{
+	position: absolute;
+	top: 34.004166666667vw;
+	/* height: 100%; */
+	width: 100vw;
+	/* height: 200.94166666667vw; */
+	background-color: white;
+
+}
+.NewProductsArrived{
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size:  1.5625vw;
+
+text-align: center;
+display: block;
+margin-top: 1vw;
+/* identical to box height, or 0% */
+
+
+
+}
+.NewProducts{
+	/* background-color: red; */
+	width: 100%;
+	margin-left:  7.0833333333333vw;
+	margin-top:  3.3333333333333vw;
+}
+.swiper {
+	
+	height:  25.833333333333vw;
+	margin-top: 2.96875vw;
+	
+  }
+  .see-more-btn{
+	width:  7.1875vw;
+height: 2.0833333333333vw;
+border: none;
+color: #FFFFFF;
+font-size: 0.825vw;
+font-weight: 700;
+font-family: 'Montserrat';
+box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+display: block;
+margin: 1vw auto;
+  }
+  .home-landing-cover{
+	width: 100vw;
+	height: 20.520833333333vw;
+	background-image: url('./images//akhil-yerabati-Q2uV5TkjNz8-unsplash.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 2.4479166666667vw;
+  }
+  .about span{
+	margin-top:  3.0729166666667vw;
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size:1.5625vw;
+line-height: 0px;
+  }
+  .about-desc{
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 0.825vw;
+margin-top: 2.0833333333333vw;
+  }
+  .AboutCard{
+	width: 20.729166666667vw;
+height: 15.052083333333vw;
+
+
+background: #FFFFFF;
+box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+padding: 1.5vw;
+display: flex;
+flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	margin: 0 0.5vw;
+  }
+  .AboutCard-circle{
+	width: 5.1041666666667vw;
+	height: 5.1041666666667vw;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+ .AboutCard-desc{
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 0.825vw;
+margin-top: 0.725vw;
+ }
+ .easy-box{
+	position: relative;
+	width: 100vw;
+	height: 32.7609375vw;
+	margin-top: 110.94166666667vw;
+	/* background-color: ; */
+ }
+ .easy-box-content{
+	 position: absolute;
+	width: 71.041666666667vw;
+height: 22.835416666667vw;
+	top:  7.0833333333333vw;
+	left:  14.479166666667vw;
+	/* background-color: bisque; */
+ }
+ .easy-box-content-title{
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size:  1.5625vw;
+
+}
+.googlePlay-box{
+	width: 13.958333333333vw;
+	height:  5vw;
+	padding: 0.1vw;
+	
+}
+.footer{
+	position: relative;
+	width: 100vw;
+	height: 12.916666666667vw;
+}
+.footerContent{
+	position: absolute;
+width: 67.708333333333vw;
+height:  9.1666666666667vw;
+left: 7.7083333333333vw;
+
+top: 1.9791666666667vw;
+/* background-color: rgb(182, 117, 31); */
+}
+.Product-sec-1{
+	padding: 2vw 1vw;
+}
+.Product-images{
+	width: 100%;
+	height: 5.5729166666667vw;
+	/* background-color: red; */
+	margin-top:  0.67708333333333vw;
+}
+
+  .product-desc{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.825vw;
+	margin-top: 1vw;
+  }
+  .Product-ID{
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 0.725vw;
+line-height: 250%;
+
+/* or  */
+
+
+  }
+.QTYBox{
+	width: 100%;
+/* height: 298px; */
+
+
+background: #FFFFFF;
+box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+padding: 1vw;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.qty-box{
+	width:9.0104166666667vw;
+height: 2.34375vw;
+
+background: #FFFFFF;
+/* border:; */
+font-size: 0.825vw;
+color: gray;
+padding: 0.5vw;
+}
+.qty-box:focus{
+	outline: none;
+}
+.DownloadFileButton{
+	width:  9.0104166666667vw;
+height: 3.125vw;
+
+margin: .5vw 0;
+background: #FFFFFF;
+box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+.text{
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 0.625VW;
+line-height: 417%;
+
+/* identical to box height, or 417% */
+}
+.centerlize-box{
+	width: 29.583333333333vw;
+	height: 17.552083333333vw;
+	background-color: antiquewhite;
+	position: absolute;
+	border-radius:  1.40625vw;
+	top:  10.375vw;
+	left:  35.208333333333vw;
+	background: #FFFFFF;
+box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+display: flex;
+flex-direction: column;
+justify-content: start;
+align-items: center;
+}
+.popup-text{
+	font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 1.0416666666667vw;
+line-height: 175% ;
+
+/* or 175% */
+text-align: center;
+
+color: #3B3937;
+margin-top:  1.0416666666667vw;
+
+}
+.poper-parent{
+	width: 100vw;
+	height: 100vh;
+	/* background-color:red; */
+	position: absolute;
+	top:  7.90625vw;
+	left: 0;
 }

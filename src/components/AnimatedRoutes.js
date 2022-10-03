@@ -1,8 +1,10 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import Home1 from "../pages/Home-1";
 import Home from "../pages/Home";
-import Page2 from "../pages/Page2";
+import Search from "../pages/Search";
+import Product from "../pages/Product";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
@@ -11,7 +13,9 @@ export default function AnimatedRoutes() {
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} exact />
-        <Route path="/page2" element={<Page2 />} exact />
+        <Route path="/home-1" element={<Home1/>} exact />
+        <Route path="/search" element={<Search />} exact />
+        <Route path="/product" element={<Product />} exact />
         {/* <Route path="/our-services" element={<OurServices />} exact />
         <Route path="/projects" element={<Projects />} exact />{" "}
         <Route path="/projectsWeb" element={<ProjectsWebsites />} exact />

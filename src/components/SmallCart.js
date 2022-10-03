@@ -2,7 +2,7 @@ import { Box, Paper } from "@mui/material";
 import React, { useState } from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Gray } from "../colors";
+import { Gray, mainColor } from "../colors";
 export default function SmallCart(props) {
   const [fav, setFav] = useState(false);
   function handleFav() {
@@ -21,7 +21,7 @@ export default function SmallCart(props) {
           {fav == true ? (
             <FavoriteIcon
               sx={{
-                color: "red",
+                color:mainColor,
                 cursor: "pointer",
                 fontSize: " 1.5020833333333vw",
               }}

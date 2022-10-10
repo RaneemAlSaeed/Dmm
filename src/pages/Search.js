@@ -19,6 +19,7 @@ import RecipeReviewCard from "../components/DropsdownList";
 import Divider from "@mui/material/Divider";
 import Dashboard from "../components/Dashboard";
 import BigCartInDashboard from "../components/BigCartInDashboard";
+import Products from "../components/Products";
 export default function Search() {
   return (
     <Box
@@ -50,24 +51,8 @@ export default function Search() {
               justifyContent: "center",
             }}
           >
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              {smallCartData.map((item) => (
-                <Grid item md={5.9}>
-                  <BigCartInDashboard
-                    img={item.img}
-                    title={item.title}
-                    desc={item.desc}
-                    price={item.price}
-                    PriceOptions={item.PriceOptions}
-                  />
-                </Grid>
-              ))}
-            </Grid>
+           
+        <Products/>
           </Grid>
         </Grid>
       </Box>

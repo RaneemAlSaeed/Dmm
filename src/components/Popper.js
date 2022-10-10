@@ -42,7 +42,7 @@ export default function Popper() {
         <NavLink to="/home-1">
           <Button
             variant="contained"
-            sx={{ width: "8.9583333333333vw", marginTop: "1.8vw" }}
+            sx={{ width: "8.9583333333333vw", marginTop: "1.8vw",fontSize:"0.825vw" }}
           >
             ok
           </Button>

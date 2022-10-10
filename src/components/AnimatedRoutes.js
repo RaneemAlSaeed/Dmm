@@ -5,6 +5,14 @@ import Home1 from "../pages/Home-1";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Product from "../pages/Product";
+import OpenCategory from "../pages/OpenCategory";
+import CartPage from "../pages/CartPage";
+import Orders from "../pages/Orders";
+import Profile from "../pages/Profile";
+import Favorites from "../pages/Favorites";
+import OrderHistory from "../pages/OrderHistory";
+import Notifications from "../pages/Notifications";
+import OrderHistoryPage from "../pages/OrderHistoryPage";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
@@ -16,6 +24,14 @@ export default function AnimatedRoutes() {
         <Route path="/home-1" element={<Home1/>} exact />
         <Route path="/search" element={<Search />} exact />
         <Route path="/product" element={<Product />} exact />
+        <Route path="/open-category" element={<OpenCategory />} exact />
+        <Route path="/cart-page" element={<CartPage />} exact />
+        <Route path="/orders" element={<Orders />} exact />
+        <Route path="/profile" element={<Profile />} exact />
+        <Route path="/favorites" element={<Favorites />} exact />
+        <Route path="/orderHistory" element={<OrderHistory />} exact />
+        <Route path="/notifications" element={<Notifications />} exact />
+        <Route path="/orderHistoryPage" element={<OrderHistoryPage />} exact />
         {/* <Route path="/our-services" element={<OurServices />} exact />
         <Route path="/projects" element={<Projects />} exact />{" "}
         <Route path="/projectsWeb" element={<ProjectsWebsites />} exact />

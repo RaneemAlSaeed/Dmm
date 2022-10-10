@@ -16,6 +16,7 @@ export default function Stepper() {
         images={images}
         showBullets={true}
         showNavs={false}
+        autoPlay={true}
       />
     </div>
   );

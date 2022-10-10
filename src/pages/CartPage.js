@@ -9,10 +9,13 @@ import SimilarProduct from "../components/SimilarProduct";
 import VideoComp from "../components/VideoComp";
 import DownloadFileButton from "../components/DownloadFileButton";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
-import QuizIcon from '@mui/icons-material/Quiz';
+import QuizIcon from "@mui/icons-material/Quiz";
 import Header from "../components/Header";
 import { headerData } from "../data";
-export default function Product() {
+import Products from "../components/Products";
+import MiniQTYBox from "../components/MiniQTYBox";
+
+export default function CartPage() {
   return (
     <Box
       sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
@@ -30,34 +33,30 @@ export default function Product() {
           <Grid
             item
             md={9.85}
-            sx={{ backgroundColor: "white" }}
-            className="Product-sec-1"
+           
           >
-            <Grid
-              container
-              direction="row"
-              justifyContent="start"
-              alignItems="start"
-            >
-              <Grid item md={7}>
-                <VideoComp />
-              </Grid>
-              <Grid item md={5} sx={{ paddingX: "1vw" }}>
-                <SectionTowInProduct />
-              </Grid>
-            </Grid>
+            <Box sx={{marginTop:"1vw"}}>
 
-          <LastSectionInProduct/>
+         <Products delete={true}/>
+            </Box>
           </Grid>
-          <Grid item md={2} sx={{marginTop: "2.1354166666667vw",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}} >
-           <QTYBox/>
-           <DownloadFileButton  text="Download File" icon={PictureAsPdfIcon}  color={Blue}/>
-           <DownloadFileButton  text="Ask About this" icon={QuizIcon} color={mainColor} />
+          <Grid
+            item
+            md={2}
+            sx={{
+              marginTop: "2.1354166666667vw",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <MiniQTYBox />
+         
           </Grid>
         </Grid>
-     
-      <SimilarProduct/>
-       
+
+        {/* <SimilarProduct /> */}
       </Box>
     </Box>
   );

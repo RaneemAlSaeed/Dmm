@@ -5,7 +5,7 @@ export const sideBar = createSlice({
   initialState: {
     sideBarState: false,
   },
-  reducers: { 
+  reducers: {
     openSideBar: (state) => {
       state.sideBarState = true;
     },

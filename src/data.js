@@ -9,7 +9,7 @@ import sku4 from "./images/3.jpg";
 import sku5 from "./images/4.jpg";
 import sku6 from "./images/10.jpg";
 import { mainColor } from "./colors";
-
+import { nanoid } from 'nanoid'
 export const headerData = {
   bgColor: mainColor,
   logo,
@@ -22,7 +22,9 @@ export const headerData = {
 };
 
 export const smallCartData = [
-  {
+  { 
+    id:nanoid(),
+    fav:false,
     img: sku1,
     title: "Headphone 01",
     price: "500$",
@@ -31,6 +33,8 @@ export const smallCartData = [
 
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku2,
     title: "Headphone 01",
     price: "500$",
@@ -38,6 +42,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku3,
     title: "Headphone 01",
     price: "500$",
@@ -45,6 +51,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku4,
     title: "Headphone 01",
     price: "500$",
@@ -52,6 +60,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku5,
     title: "Headphone 01",
     price: "500$",
@@ -59,6 +69,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku6,
     title: "Headphone 01",
     price: "500$",
@@ -66,6 +78,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku1,
     title: "Headphone 01",
     price: "500$",
@@ -73,6 +87,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku2,
     title: "Headphone 01",
     price: "500$",
@@ -80,6 +96,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku3,
     title: "Headphone 01",
     price: "500$",
@@ -87,6 +105,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku4,
     title: "Headphone 01",
     price: "500$",
@@ -94,6 +114,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku5,
     title: "Headphone 01",
     price: "500$",
@@ -101,6 +123,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku6,
     title: "Headphone 01",
     price: "500$",
@@ -108,6 +132,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku1,
     title: "Headphone 01",
     price: "500$",
@@ -115,6 +141,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku2,
     title: "Headphone 01",
     price: "500$",
@@ -122,6 +150,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku3,
     title: "Headphone 01",
     price: "500$",
@@ -129,6 +159,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku4,
     title: "Headphone 01",
     price: "500$",
@@ -136,6 +168,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku5,
     title: "Headphone 01",
     price: "500$",
@@ -143,6 +177,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku6,
     title: "Headphone 01",
     price: "500$",
@@ -150,6 +186,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku1,
     title: "Headphone 01",
     price: "500$",
@@ -157,6 +195,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku2,
     title: "Headphone 01",
     price: "500$",
@@ -164,6 +204,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku3,
     title: "Headphone 01",
     price: "500$",
@@ -171,6 +213,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku4,
     title: "Headphone 01",
     price: "500$",
@@ -178,6 +222,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku5,
     title: "Headphone 01",
     price: "500$",
@@ -185,6 +231,8 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
   {
+    id:nanoid(),
+    fav:false,
     img: sku6,
     title: "Headphone 01",
     price: "500$",
@@ -192,3 +240,16 @@ export const smallCartData = [
     PriceOptions: "Available"
   },
 ];
+
+export const smallCartDataImg=[
+  {id:nanoid(),
+    img: sku1},
+  {id:nanoid(),
+    img: sku2},
+  {id:nanoid(),
+    img: sku3},
+  {id:nanoid(),
+    img: sku4},
+  {id:nanoid(),
+    img: sku5},
+]

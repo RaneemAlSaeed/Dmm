@@ -1,11 +1,54 @@
- <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item md={6}>
-          <VideoComp/>
-        </Grid>
-        <Grid item md={6}></Grid>
-      </Grid>
+copyOfArray.map(item=>{
+    if(item.id==id){
+     
+      // item.fav= !item.fav ;
+copyOfArray.forEach(function(item, index){
+     if(item.id==id){
+      item.fav= !item.fav
+     }
+   });
+   SetcopyOfArray(copyOfArray)
+    console.log("nn",copyOfArray);
+      // SetcopyOfArray(newArr) 
+      // dispatch(addToFavorite(item))
+     
+      
+      if( favArr.indexOf(item) == -1 ){
+        setFavArr([...favArr,item])
+        console.log("fav",favArr);
+      }
+     
+        return copyOfArray
+     
+    }
+ 
+  })
+
+
+
+
+
+
+  // if(state.FavoritesArray.length==0){
+
+    // }
+    // else{
+    //   state.FavoritesArray.map((item) => {
+    //     if (item.id == action.payload.item.id) {
+    //       // state.FavoritesArray.filter(
+    //       //   (item) => item.id != action.payload.item.id
+    //       // );
+    //       console.log("tkrar");
+    //     }
+    //     else{
+    //       state.FavoritesArray = state.FavoritesArray.push( action.payload.item)
+
+    //     }
+    //   });
+    }
+      // console.log("state", state.FavoritesArray);
+     
+   
+
+    // console.log("state2", state.FavoritesArray);
+  },

@@ -15,8 +15,6 @@ import logo from "../images/Logo.svg";
 import EasyContent from "../components/EasyContent";
 // import Product from "../components/Product";
 import ProductsSwiper from "../components/ProductsSlider";
-import TransitionsPopper from "../components/Popper";
-import SlideFromContainer from "../components/Popper";
 
 export default function Home() {
   return (
@@ -65,7 +63,7 @@ export default function Home() {
         <EasyContent />
       </Box>
       <Footer />
-    
+    {/* <Test/> */}
     </Box>
   );
 }

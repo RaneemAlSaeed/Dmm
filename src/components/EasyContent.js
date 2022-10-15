@@ -4,7 +4,7 @@ import { mainColor, Gray } from "../colors";
 import googlePlay from "../images/Google Play.png";
 import playStore from "../images/APP Store.png";
 import Huawe from "../images/Huawe store.png";
-import phone from "../images/phone side.png";
+import phone from "../images/Phone Image.png";
 export default function EasyContent() {
   return (
     <Box className="easy-box-content">
@@ -57,6 +57,7 @@ export default function EasyContent() {
               width: "23.4375vw",
               height: "22.8125vw",
               // backgroundColor: "red",
+              marginTop:"-3vw"
             }}
           >
             <img
@@ -64,7 +65,7 @@ export default function EasyContent() {
               alt=""
               width="100%"
               height="100%"
-              style={{ objectFit: "contain" }}
+              // style={{ objectFit: "contain" }}
             />
           </Box>
         </Grid>

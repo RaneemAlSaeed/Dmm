@@ -47,14 +47,14 @@ export default function OpenCategoryList() {
     },
   }));
   const classes = useStyles();
-  const arr = Array.from(Array(8));
+  const arr = Array.from(Array(6));
   console.log(arr.length);
   return (
     <Box
       sx={{
         width: "13.4375vw",
         height: "19.739583333333vw",
-     
+        overflow:"hidden"
       }}
       className="mini-dashboard"
     >

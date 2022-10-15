@@ -9,43 +9,53 @@ import {
   handleFav,
 } from "../store/FavoriteSlice";
 import { useEffect } from "react";
-// Requiring the lodash library  
+import { InsertEmoticonTwoTone } from "@material-ui/icons";
+// Requiring the lodash library
+
 const _ = require("lodash");
+
 export default function Products(props) {
- const [data,setData]=useState(smallCartData)
+  // const [isItemInFav, setIsItemInFav] = useState(false);
+  const [data, setData] = useState(smallCartData);
+  const dispatch = useDispatch();
   const FavoritesArray = useSelector(
     (state) => state.favoriteState.FavoritesArray
   );
-  const dispatch = useDispatch();
-  
-  // console.log("ggg",FavoritesArray);
-  
-  function handleFavClick(obj) {
-  
-    if (FavoritesArray.indexOf(obj) == -1) {
-      dispatch(addToFavorite({ obj }));
-      
-    
+  // const [FavoritesArray, setFavoritesArray] = useState([]);
+
+  function handleFavClick(obj, id) {
+    let trueObject = { ...obj, fav: true };
+    let falseObject = { ...obj, fav: false };
+    console.log(trueObject);
+    console.log(falseObject);
+    if (FavoritesArray.length == 0) {
+      dispatch(addToFavorite({ trueObject }));
+      // setFavoritesArray([...FavoritesArray, ]);
+      let index = data.indexOf(obj);
+      data[index] = trueObject;
+      setData(data);
     } else {
-      dispatch(removeFromFavorite({ obj }));
-      let newObj={...obj,fav:false}
-      setData([newObj,...data])
-      console.log("setdata",data);
-    //  data[ data.indexOf(obj)].fav=false
-     
+      if (
+        JSON.stringify(FavoritesArray).indexOf(JSON.stringify(trueObject)) > -1
+      ) {
+        dispatch(removeFromFavorite({ trueObject }));
+        let index = data.indexOf(obj);
+        data[index] = falseObject;
+        setData(data);
+      } else {
+        dispatch(addToFavorite({ trueObject }));
+        let index = data.indexOf(obj);
+        data[index] = trueObject;
+        setData(data);
+      }
     }
-    
-   
-    
   }
+
   useEffect(() => {
-    var newArr=[]
-    console.log("fav",FavoritesArray);
-    console.log("data",data);
-    console.log("new",newArr);
-    newArr= _.unionBy(FavoritesArray,data, 'id'); 
-      setData(newArr)
-      console.log("new2",newArr);
+    console.log("FavoritesArray", FavoritesArray);
+    console.log("data", data);
+
+    
   }, [FavoritesArray]);
 
   return (
@@ -66,7 +76,7 @@ export default function Products(props) {
             price={item.price}
             PriceOptions={item.PriceOptions}
             delete={props.delete}
-            handleFavClick={() => handleFavClick(item)}
+            handleFavClick={() => handleFavClick(item, item.id)}
           />
         </Grid>
       ))}

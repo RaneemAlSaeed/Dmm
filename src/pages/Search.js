@@ -22,39 +22,38 @@ import BigCartInDashboard from "../components/BigCartInDashboard";
 import Products from "../components/Products";
 export default function Search() {
   return (
-    <Box
-      sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
-    >
-      <Box className="header">
-        <Header data={headerData} />
-      </Box>
+    <Box sx={{ backgroundColor: secColor, width: "100%", height: "100%" }}>
+      <div style={{height:"6.0458333333333vw"}}>.</div>
       <Box
-        className="containerr"
-        sx={{ marginTop: "2.2916666666667vw" }}
+        sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
       >
-        <Grid
-          container
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          sx={{ }}
-        >
-          <Grid item sx={{ backgroundColor: "" }}>
-            <Dashboard />
-          </Grid>
+        <Box className="header">
+          <Header data={headerData} />
+        </Box>
+        <Box className="containerr" >
           <Grid
-            item
-            md={10.1}
-            sx={{
-              // backgroundColor: "blue",
-              display: "flex",
-              justifyContent: "center",
-            }}
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{}}
           >
-           
-        <Products/>
+            <Grid item sx={{ backgroundColor: "" }}>
+              <Dashboard />
+            </Grid>
+            <Grid
+              item
+              md={10.1}
+              sx={{
+                // backgroundColor: "blue",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Products />
+            </Grid>
           </Grid>
-        </Grid>
+        </Box>
       </Box>
     </Box>
   );

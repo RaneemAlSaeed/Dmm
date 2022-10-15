@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Gray, mainColor, secColor } from "../colors";
 import AboutCard from "../components/AboutCard";
 import AboutSection from "../components/AboutSection";
@@ -15,8 +15,12 @@ import logo from "../images/Logo.svg";
 import EasyContent from "../components/EasyContent";
 // import Product from "../components/Product";
 import ProductsSwiper from "../components/ProductsSlider";
-
+import Test from "../components/Test";
 export default function Home() {
+  let navigate = useNavigate();
+  function handleSeeMore(){
+    navigate("/homeTow")
+  }
   return (
     <Box sx={{ display: { xs: "none", md: "block" } }}>
       <Stepper />
@@ -43,14 +47,15 @@ export default function Home() {
         <Box className="NewProducts">
           <ProductsSwiper />
         </Box>
-        <NavLink to="home-1" style={{ textDecoration: "none" }}>
+        <Box onClick={handleSeeMore}>
           <button
             className="see-more-btn"
             style={{ backgroundColor: mainColor }}
           >
             See More
           </button>
-        </NavLink>
+        </Box>
+
         <Box className="containerr" sx={{ marginTop: "2.4791666666667vw" }}>
           <FirstShapeInHomePage />
         </Box>
@@ -63,7 +68,8 @@ export default function Home() {
         <EasyContent />
       </Box>
       <Footer />
-    {/* <Test/> */}
+     
+      {/* <Test /> */}
     </Box>
   );
 }

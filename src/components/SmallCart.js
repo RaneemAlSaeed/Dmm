@@ -13,10 +13,11 @@ export default function SmallCart(props) {
       <img src={props.img} alt="" className="SmallCart-img" />
       <Box className="SmallCart-details">
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <p className="SmallCart-details-title" style={{ color: Gray}}>
+          <span className="SmallCart-details-title" style={{ color: Gray}}>
             {props.title}
-            <p style={{ color: Gray}}>{props.price}</p>
-          </p>
+            <br />
+            <span style={{ color: Gray}}>{props.price}</span>
+          </span>
 
           {fav == true ? (
             <FavoriteIcon

@@ -47,9 +47,12 @@ const useStyles = makeStyles((theme) => ({
     },
    
     listItem: {
-      color: Gray
+      color: Gray,
+      
+
     },
     listItemRed: {
+    
         color: Gray,
         paddingLeft:"2.50833333333333vw",
         "&:hover": {

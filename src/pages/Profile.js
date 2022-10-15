@@ -58,7 +58,8 @@ export default function Profile() {
       </Box>
       <Box
         className="containerr"
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+       
+        sx={{ marginTop: "4.0625vw", display: "flex", justifyContent: "center", alignItems: "center" }}
       >
         <Box className="profile-box">
           <Box sx={{ width: "8.8020833333333vw" }}>

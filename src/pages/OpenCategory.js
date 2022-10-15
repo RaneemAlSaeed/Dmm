@@ -23,13 +23,15 @@ export default function OpenCategory() {
     document.body.style.overflow = "hidden";
   }, []);
   return (
+    <Box sx={{ backgroundColor: secColor, width: "100%", height: "100%" }}>
+    <div style={{height:"3.80458333333333vw"}}>.</div> 
     <Box
       sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
     >
       <Box className="header">
         <Header data={headerData} />
       </Box>
-      <Box className="containerr-tow">
+      <Box className="containerr-tow" >
         <Grid
           container
           direction="row"
@@ -106,5 +108,7 @@ export default function OpenCategory() {
         )}
       </Box>
     </Box>
+     </Box>
+   
   );
 }

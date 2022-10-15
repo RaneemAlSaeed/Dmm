@@ -10,13 +10,15 @@ import { headerData } from "../data";
 
 export default function Favorites() {
   return (
-    <div>
-      <Box
+    <Box sx={{ backgroundColor: secColor, width: "100%", height: "100%" }}>
+    <div style={{height:"4.0458333333333vw"}}>.</div>  
+    <Box
         sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
       >
         <Box className="header">
           <Header data={headerData} />
         </Box>
+       
         <Box className="containerr-tow" sx={{ backgroundColor: "white" }}>
           <span style={{ color: "white" }}>.</span>
           <WelcomeUser />
@@ -25,6 +27,8 @@ export default function Favorites() {
           </Box>
         </Box>
       </Box>
-    </div>
+    </Box>
+    
+  
   );
 }

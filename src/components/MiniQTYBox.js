@@ -101,7 +101,7 @@ export default function MiniQTYBox(props) {
         </NavLink>
       )}
 
-      {props.submit && checked && <Popper />}
+      {props.submit && checked && <Popper submit={true}/>}
     </Box>
   );
 }

@@ -11,8 +11,7 @@ export default function Form() {
             <input type="text" placeholder="Name :" className="name-input" />
             <input type="text" placeholder="Name :" className="name-input" />
             <input type="text" placeholder="Name :" className="name-input" />
-            <textarea type="text" placeholder="Note :" className="name-input note"
-             style={{height:" 10.052083333333vw"}} />
+            <textarea name="note" id="" placeholder='Note :' className='note'></textarea>
           </Box>
   )
 }

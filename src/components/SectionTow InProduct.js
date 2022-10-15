@@ -1,16 +1,46 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { Gray, mainColor, secColor } from "../colors";
-
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 export default function SectionTowInProduct() {
+  const [fav, setFav] = useState(false);
+  function handleFav() {
+    setFav(!fav);
+  }
   return (
     <Box sx={{ marginTop: "-1vw" }}>
+      <Box sx={{ display:"flex",justifyContent:"space-between" }}>
+
       <span
         className="NewProductsArrived"
         style={{ color: mainColor, textAlign: "start" }}
       >
         Smart Headphone
       </span>
+      <Box sx={{marginTop:"1vw"}}>
+      {fav == true ? (
+            <FavoriteIcon
+              sx={{
+                color:mainColor,
+                cursor: "pointer",
+                fontSize: " 2.05020833333333vw",
+              }}
+              onClick={handleFav}
+            />
+          ) : (
+            <FavoriteBorderIcon
+              sx={{
+                color: Gray,
+                cursor: "pointer",
+                fontSize: " 2.05020833333333vw",
+              }}
+              onClick={handleFav}
+            />
+          )}
+      </Box>
+      </Box>
+   
       <Box className="product-desc" style={{ color: Gray }}>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
         nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat{" "}

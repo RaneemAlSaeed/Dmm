@@ -12,14 +12,15 @@ import { headerData } from "../data";
 
 export default function OrderHistory() {
   return (
-    <div>
-      <Box
+    <Box sx={{ backgroundColor: secColor, width: "100%", height: "100%" }}>
+    <div style={{height:"4.0458333333333vw"}}>.</div> 
+    <Box
         sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
       >
         <Box className="header">
           <Header data={headerData} />
         </Box>
-        <Box className="containerr-tow" sx={{ backgroundColor: "white" }}>
+        <Box className="containerr-tow" sx={{ backgroundColor: "white"}}>
           <span style={{ color: "white" }}>.</span>
           <WelcomeUser />
           <Box sx={{ marginTop: "1vw", padding: "0 8vw" }}>
@@ -53,6 +54,8 @@ export default function OrderHistory() {
           </Box>
         </Box>
       </Box>
-    </div>
+     </Box>
+    
+    
   );
 }

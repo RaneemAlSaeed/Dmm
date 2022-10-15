@@ -12,7 +12,7 @@ export default function QTYBox() {
     setChecked((prev) => !prev);
   };
   return (
-    <Box className="QTYBox">
+    <Box className="firstQTYBox">
       <span
         className="Product-ID"
         style={{ color: mainColor, marginBottom: "0.5vw" }}

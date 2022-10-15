@@ -37,7 +37,7 @@ export default function ProductsSwiper() {
           alignItems="center"
         >
           {smallCartData.map((item) => (
-            <Grid item md={1.9} sx={{ marginTop: "2.2916666666667vw" }}>
+            <Grid item md={1.9} >
               <SwiperSlide>
                 <SmallCart
                   img={item.img}

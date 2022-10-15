@@ -14,13 +14,15 @@ import Header from "../components/Header";
 import { headerData } from "../data";
 export default function Product() {
   return (
+    <Box sx={{ backgroundColor: secColor, width: "100%", height: "100%" }}>
+    <div style={{height:"4.0458333333333vw"}}>.</div> 
     <Box
       sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
     >
       <Box className="header">
         <Header data={headerData} />
       </Box>
-      <Box className="containerr">
+      <Box className="containerr" >
         <Grid
           container
           direction="row"
@@ -49,16 +51,20 @@ export default function Product() {
 
           <LastSectionInProduct/>
           </Grid>
-          <Grid item md={2} sx={{marginTop: "2.1354166666667vw",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}} >
-           <QTYBox/>
+          <Grid item md={2} sx={{marginTop: "2.1354166666667vw",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",position:"fixed",left:"79.21875vw",top:""}} >
+           <QTYBox />
            <DownloadFileButton  text="Download File" icon={PictureAsPdfIcon}  color={Blue}/>
            <DownloadFileButton  text="Ask About this" icon={QuizIcon} color={mainColor} />
           </Grid>
         </Grid>
-     
+     <Box sx={{zIndex:-100}}>
+
       <SimilarProduct/>
+     </Box>
        
       </Box>
     </Box>
+     </Box>
+   
   );
 }

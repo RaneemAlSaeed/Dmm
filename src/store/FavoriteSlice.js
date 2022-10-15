@@ -4,24 +4,25 @@ export const Favorite = createSlice({
   name: "Favorite",
   initialState: {
     FavoritesArray: [],
+
   },
   reducers: {
-   
     addToFavorite: (state, action) => {
-      let newObj={...action.payload.obj,fav:true}
-      state.FavoritesArray = [...state.FavoritesArray,newObj]
-     
+      state.FavoritesArray = [
+        ...state.FavoritesArray,
+        action.payload.trueObject,
+      ];
     },
+    
     removeFromFavorite: (state, action) => {
       state.FavoritesArray = state.FavoritesArray.filter((item) => {
-        
-        return item.id != action.payload.obj.id;
+        return item.id != action.payload.trueObject.id;
       });
     },
   },
 });
 
-export const { addToFavorite, removeFromFavorite, handleFav } =
+export const { addToFavorite, removeFromFavorite} =
   Favorite.actions;
 
 export default Favorite.reducer;

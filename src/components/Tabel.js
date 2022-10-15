@@ -67,27 +67,27 @@ const rows = [
 
 export default function CustomizedTables() {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ width: "100%" }} aria-label="customized table">
+    <TableContainer component={Paper} sx={{ width: "100%",display:"flex",flexDirection:"column",justifyContent:"center" ,alignItems:"center"}}>
+      <Table  aria-label="customized table">
         <TableHead>
-          <TableRow>
+          <TableRow >
             <StyledTableCell>Product Name</StyledTableCell>
-            <StyledTableCell align="right">Product ID</StyledTableCell>
-            <StyledTableCell align="right">Quantity</StyledTableCell>
-            <StyledTableCell align="right">Unit Price</StyledTableCell>
-            <StyledTableCell align="right">Total Price </StyledTableCell>
+            <StyledTableCell align="center">Product ID</StyledTableCell>
+            <StyledTableCell align="center">Quantity</StyledTableCell>
+            <StyledTableCell align="center">Unit Price</StyledTableCell>
+            <StyledTableCell align="center">Total Price </StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.name} >
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="center">{row.calories}</StyledTableCell>
+              <StyledTableCell align="center">{row.fat}</StyledTableCell>
+              <StyledTableCell align="center">{row.carbs}</StyledTableCell>
+              <StyledTableCell align="center">{row.protein}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

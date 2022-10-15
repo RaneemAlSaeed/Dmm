@@ -1,7 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Home1 from "../pages/Home-1";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Product from "../pages/Product";
@@ -13,6 +12,7 @@ import Favorites from "../pages/Favorites";
 import OrderHistory from "../pages/OrderHistory";
 import Notifications from "../pages/Notifications";
 import OrderHistoryPage from "../pages/OrderHistoryPage";
+import HomeTow from "../pages/HomeTow";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
@@ -21,7 +21,7 @@ export default function AnimatedRoutes() {
     <AnimatePresence exitBeforeEnter>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} exact />
-        <Route path="/home-1" element={<Home1/>} exact />
+        <Route path="/homeTow" element={<HomeTow/>} exact />
         <Route path="/search" element={<Search />} exact />
         <Route path="/product" element={<Product />} exact />
         <Route path="/open-category" element={<OpenCategory />} exact />

@@ -19,6 +19,8 @@ import CustomizedTables from "../components/Tabel";
 
 export default function Orders() {
   return (
+    <Box sx={{ backgroundColor: secColor, width: "100%", height: "100%" ,zIndex:10}}>
+    <div style={{height:"4.0458333333333vw"}}>.</div> 
     <Box
       sx={{ backgroundColor: secColor, display: { xs: "none", md: "block" } }}
     >
@@ -34,7 +36,7 @@ export default function Orders() {
           sx={{marginTop:"2vw"}}
         >
           <Form/>
-          <Box sx={{width:"42.291666666667vw"}} >
+          <Box sx={{width:"42.291666666667vw",position:"absolute",left:"33.729166666667vw"}} >
             <CustomizedTables/>
           </Box>
           <Box sx={{marginTop:"1vw"}} >
@@ -43,5 +45,7 @@ export default function Orders() {
         </Grid>
       </Box>
     </Box>
+    </Box>
+  
   );
 }

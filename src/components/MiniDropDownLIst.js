@@ -77,7 +77,7 @@ export default function MiniDropsdownList(props) {
           </Grid>
         </Grid>
 
-        <Collapse in={expanded} timeout="auto" unmountOnExit></Collapse>
+        {/* <Collapse in={expanded} timeout="auto" unmountOnExit></Collapse> */}
       </Box>
       {props.last == false && (
         <Divider sx={{ position: "absolute", width: "100%", left: 0 }} />

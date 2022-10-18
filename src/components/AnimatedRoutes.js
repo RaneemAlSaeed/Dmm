@@ -13,6 +13,8 @@ import OrderHistory from "../pages/OrderHistory";
 import Notifications from "../pages/Notifications";
 import OrderHistoryPage from "../pages/OrderHistoryPage";
 import HomeTow from "../pages/HomeTow";
+import Login from "../pages/Login";
+import VerifyPage from "../pages/VerifyPage";
 
 export default function AnimatedRoutes() {
   const location = useLocation();
@@ -32,6 +34,9 @@ export default function AnimatedRoutes() {
         <Route path="/orderHistory" element={<OrderHistory />} exact />
         <Route path="/notifications" element={<Notifications />} exact />
         <Route path="/orderHistoryPage" element={<OrderHistoryPage />} exact />
+        <Route path="/login" element={<Login />} exact />
+        <Route path="/verify" element={<VerifyPage />} exact />
+
         {/* <Route path="/our-services" element={<OurServices />} exact />
         <Route path="/projects" element={<Projects />} exact />{" "}
         <Route path="/projectsWeb" element={<ProjectsWebsites />} exact />

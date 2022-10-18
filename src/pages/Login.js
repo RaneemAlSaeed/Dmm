@@ -23,42 +23,44 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { postRegister } from "../store/registerSlice";
-export default function Profile() {
+import { postLogin } from "../store/loginSlice";
+export default function Login() {
   const [profile, setProfile] = useState({});
-  const registerState = useSelector((state) => state.register.registerData);
-  const dispatch = useDispatch();
+  const loginState = useSelector((state) => state.login.loginData);
+  const dispatch=useDispatch()
   let navigate = useNavigate();
   const routeChange = (e) => {
     e.preventDefault();
-    localStorage.setItem("profile", JSON.stringify(profile));
-  
+
+   
     // if (localStorage.getItem("profile")) {
     //   localStorage.removeItem("profile");
     //   localStorage.setItem("profile", JSON.stringify(profile));
 
+    //   // navigate(path);
     // } else {
     //   localStorage.setItem("profile", JSON.stringify(profile));
-
+    //   // navigate(path);
     // }
-    dispatch(postRegister(profile));
     console.log(profile);
-    console.log("sliceee", registerState);
-    
+    dispatch(postLogin(profile))
+    console.log("slice",loginState);
   };
-  useEffect(() => {
-    let path = `/verify`;
-    if(registerState.status === "success"){
-
-      navigate(path);
-   }
-    console.log("register", registerState);
-  }, [registerState]);
+  useEffect(()=>{
+    let path = `/favorites`;
+    if(loginState.status == "success"){
+      localStorage.setItem("token", JSON.stringify(loginState.token));
+      navigate(path)
+    }
+    console.log("slicetttttttttt",loginState);
+  },[loginState])
 
   function handleChange(e) {
     setProfile({
       ...profile,
       [e.target.name]: e.target.value,
     });
+   
   }
 
   return (
@@ -70,12 +72,8 @@ export default function Profile() {
       </Box>
       <Box
         className="containerr"
-        sx={{
-          marginTop: "4.0625vw",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+       
+        sx={{ marginTop: "4.0625vw", display: "flex", justifyContent: "center", alignItems: "center" }}
       >
         <Box className="profile-box">
           <Box sx={{ width: "8.8020833333333vw" }}>
@@ -105,23 +103,6 @@ export default function Profile() {
             component="form"
             onSubmit={routeChange}
           >
-            <label htmlFor="" style={{ color: mainColor }}>
-              Name:
-            </label>
-            <input
-              placeholder="someone"
-              required
-              onChange={handleChange}
-              name="name"
-              type="text"
-              style={{
-                border: " 0.052083333333333vw solid ",
-                borderColor: mainColor,
-                width: "21.5625vw",
-                height: " 2.5vw",
-                fontSize: "0.825vw",
-              }}
-            />
             <label htmlFor="" style={{ color: mainColor, marginTop: "1vw" }}>
               Email:
             </label>
@@ -141,7 +122,7 @@ export default function Profile() {
                 fontSize: "0.825vw",
               }}
             />
-            <label htmlFor="" style={{ color: mainColor, marginTop: "1vw" }}>
+             <label htmlFor="" style={{ color: mainColor , marginTop:"1vw"}}>
               Password:
             </label>
             <input
@@ -156,9 +137,10 @@ export default function Profile() {
                 width: "21.5625vw",
                 height: " 2.5vw",
                 fontSize: "0.825vw",
+               
               }}
             />
-
+           
             <Box
               sx={{
                 width: "21.5625vw",
@@ -189,9 +171,9 @@ export default function Profile() {
                 }}
                 className="create-acc-btn"
               >
-                Create Acount
+               login 
               </Button>
-             
+              {/* </NavLink> */}
             </Box>
           </Box>
         </Box>

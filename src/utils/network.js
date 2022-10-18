@@ -1,59 +1,21 @@
 import axios from "axios";
 
-const token = JSON.parse(localStorage.getItem("token"));
-export var errMsg = undefined;
-var originalRequest;
-const axiosInstance = axios.create({
-  baseURL: "https://a2d61d04-9186-4df8-b30e-dc08f2fa40d8.mock.pstmn.io",
-
+// Default config options
+const defaultOptions = {
+  baseURL:"https://dm-mobile-back.point-dev.net",
   headers: {
-    Authorization: token ? `Token ${token}` : "",
+    'Content-Type': 'application/json',
   },
+};
+
+// Create axiosInstance
+let axiosInstance = axios.create(defaultOptions);
+
+// Set the AUTH token for any request
+axiosInstance.interceptors.request.use(function (config) {
+  const token = localStorage.getItem('token');
+  console.log("toooken",token);
+  config.headers.Authorization =  token ? `Bearer ${token}` : '';
+  return config;
 });
-
-// // Add a request interceptor
-
-axiosInstance.interceptors.request.use(
-  function (config) {
-    console.log("req config", config);
-    originalRequest = config;
-
-    // Do something before request is sent
-    return config;
-  },
-  function (error) {
-    errMsg = error.message;
-    console.log("req err", error);
-    // Do something with request error
-
-    return Promise.reject(error);
-  }
-);
-
-// Add a response interceptor
-axiosInstance.interceptors.response.use(
-  function (response) {
-    console.log("res response", response);
-
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
-    return response;
-  },
-  function (error) {
-    errMsg = error.message;
-    console.log("res err", error);
-    setTimeout(() => {
-      errMsg = undefined;
-    }, 0);
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    return Promise.reject(error);
-  }
-);
-
-export function retryRequest() {
-  console.log("retry");
-  return axiosInstance.request(originalRequest);
-}
-
 export default axiosInstance;

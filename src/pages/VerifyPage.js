@@ -23,42 +23,48 @@ import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { postRegister } from "../store/registerSlice";
-export default function Profile() {
+import { postLogin } from "../store/loginSlice";
+import { postverify } from "../store/verifySlice";
+export default function VerifyPage() {
   const [profile, setProfile] = useState({});
-  const registerState = useSelector((state) => state.register.registerData);
+  const [num, setNum] = React.useState(1);
+
+  const verifyState = useSelector((state) => state.verify.verifyData);
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const routeChange = (e) => {
     e.preventDefault();
-    localStorage.setItem("profile", JSON.stringify(profile));
-  
+
     // if (localStorage.getItem("profile")) {
     //   localStorage.removeItem("profile");
     //   localStorage.setItem("profile", JSON.stringify(profile));
 
+    //   // navigate(path);
     // } else {
     //   localStorage.setItem("profile", JSON.stringify(profile));
-
+    //   // navigate(path);
     // }
-    dispatch(postRegister(profile));
     console.log(profile);
-    console.log("sliceee", registerState);
-    
+    dispatch(postverify(profile));
+    console.log("slice", verifyState);
   };
   useEffect(() => {
-    let path = `/verify`;
-    if(registerState.status === "success"){
+    let path = `/login`;
+    console.log("slicetttttttttt", verifyState);
 
+    if (verifyState.status == "success") {
       navigate(path);
-   }
-    console.log("register", registerState);
-  }, [registerState]);
+      console.log("slicetttttttttt", verifyState);
+    }
+    
+  }, [verifyState]);
 
   function handleChange(e) {
     setProfile({
       ...profile,
       [e.target.name]: e.target.value,
     });
+    console.log(profile);
   }
 
   return (
@@ -105,23 +111,6 @@ export default function Profile() {
             component="form"
             onSubmit={routeChange}
           >
-            <label htmlFor="" style={{ color: mainColor }}>
-              Name:
-            </label>
-            <input
-              placeholder="someone"
-              required
-              onChange={handleChange}
-              name="name"
-              type="text"
-              style={{
-                border: " 0.052083333333333vw solid ",
-                borderColor: mainColor,
-                width: "21.5625vw",
-                height: " 2.5vw",
-                fontSize: "0.825vw",
-              }}
-            />
             <label htmlFor="" style={{ color: mainColor, marginTop: "1vw" }}>
               Email:
             </label>
@@ -142,14 +131,14 @@ export default function Profile() {
               }}
             />
             <label htmlFor="" style={{ color: mainColor, marginTop: "1vw" }}>
-              Password:
+              Code:
             </label>
             <input
-              placeholder="someone"
-              required
-              onChange={handleChange}
-              name="password"
-              type="Password"
+              type="text"
+              name="verify_token"
+              maxLength={6}
+              minLength={6}
+              placeholder="XXX-XXX"
               style={{
                 border: " 0.052083333333333vw solid ",
                 borderColor: mainColor,
@@ -157,7 +146,26 @@ export default function Profile() {
                 height: " 2.5vw",
                 fontSize: "0.825vw",
               }}
+              required
+              onChange={handleChange}
             />
+
+            {/* <input type="number" placeholder="YYMMDD" id="myKadA" maxlength="6" style="width:90px !important" onchange="checkMyKad()" size="8"  class="form-control block-centered ic-input" required/>  */}
+            {/* <input
+              placeholder="someone"
+              required
+              onChange={handleChange}
+              name="password"
+              type="n"
+              style={{
+                border: " 0.052083333333333vw solid ",
+                borderColor: mainColor,
+                width: "21.5625vw",
+                height: " 2.5vw",
+                fontSize: "0.825vw",
+               
+              }}
+            /> */}
 
             <Box
               sx={{
@@ -189,9 +197,9 @@ export default function Profile() {
                 }}
                 className="create-acc-btn"
               >
-                Create Acount
+                verify
               </Button>
-             
+              {/* </NavLink> */}
             </Box>
           </Box>
         </Box>

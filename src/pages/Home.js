@@ -1,5 +1,5 @@
 import { Box, TextField } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Gray, mainColor, secColor } from "../colors";
 import AboutCard from "../components/AboutCard";
@@ -16,11 +16,21 @@ import EasyContent from "../components/EasyContent";
 // import Product from "../components/Product";
 import ProductsSwiper from "../components/ProductsSlider";
 import Test from "../components/Test";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCategory } from "../store/categorySlice";
+// import FormTow from "../components/FormTow";
 export default function Home() {
+  const categoryState = useSelector((state) => state.category.category);
+  const dispatch=useDispatch()
+
   let navigate = useNavigate();
   function handleSeeMore(){
     navigate("/homeTow")
   }
+  useEffect(()=>{
+    dispatch(fetchCategory())
+    console.log("llllll",categoryState);
+  },[])
   return (
     <Box sx={{ display: { xs: "none", md: "block" } }}>
       <Stepper />
@@ -68,7 +78,6 @@ export default function Home() {
         <EasyContent />
       </Box>
       <Footer />
-     
       {/* <Test /> */}
     </Box>
   );

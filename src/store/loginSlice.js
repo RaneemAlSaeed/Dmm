@@ -3,7 +3,7 @@ import axiosInstance from "../utils/network";
 
 export const postLogin = createAsyncThunk("post/login ", async (data) => {
   const response = await axiosInstance.post(`/api/login`,data);
-  console.log("poostlogin", response);
+  console.log("poostlogin", response.data);
   return response.data;
 });
 

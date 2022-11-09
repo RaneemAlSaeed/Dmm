@@ -47,17 +47,19 @@ export default function VerifyPage() {
     console.log(profile);
     dispatch(postverify(profile));
     console.log("slice", verifyState);
+   
+    
   };
-  useEffect(() => {
+  useEffect(()=>{
     let path = `/login`;
     console.log("slicetttttttttt", verifyState);
 
-    if (verifyState.status == "success") {
+    if (verifyState.status == "success" ) {
       navigate(path);
       console.log("slicetttttttttt", verifyState);
     }
-    
-  }, [verifyState]);
+
+  },[verifyState])
 
   function handleChange(e) {
     setProfile({

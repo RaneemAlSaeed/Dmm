@@ -28,30 +28,25 @@ export default function Profile() {
   const registerState = useSelector((state) => state.register.registerData);
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const routeChange = (e) => {
+
+  function routeChange(e) {
     e.preventDefault();
     localStorage.setItem("profile", JSON.stringify(profile));
-  
-    // if (localStorage.getItem("profile")) {
-    //   localStorage.removeItem("profile");
-    //   localStorage.setItem("profile", JSON.stringify(profile));
 
-    // } else {
-    //   localStorage.setItem("profile", JSON.stringify(profile));
-
-    // }
     dispatch(postRegister(profile));
     console.log(profile);
     console.log("sliceee", registerState);
-    
-  };
+  }
   useEffect(() => {
     let path = `/verify`;
-    if(registerState.status === "success"){
-
+    if (registerState.status === "success") {
       navigate(path);
-   }
+    }
     console.log("register", registerState);
+    if (localStorage.getItem("token") !== null) {
+      let path = `/favorites`;
+      navigate(path);
+    }
   }, [registerState]);
 
   function handleChange(e) {
@@ -145,7 +140,7 @@ export default function Profile() {
               Password:
             </label>
             <input
-              placeholder="someone"
+              placeholder="password"
               required
               onChange={handleChange}
               name="password"
@@ -168,7 +163,7 @@ export default function Profile() {
             >
               {/* <NavLink to="/profile-1" style={{textDecoration:"none"}}> */}
               <Button
-                // onClick={routeChange}
+                onClick={routeChange}
                 type="submit"
                 variant="contained"
                 sx={{
@@ -191,7 +186,57 @@ export default function Profile() {
               >
                 Create Acount
               </Button>
-             
+              {/* <NavLink to="/login">
+             <Button
+                // onClick={routeChange}
+                type="submit"
+                variant="contained"
+                sx={{
+                  backgroundColor: mainColor,
+                  "&:hover": {
+                    backgroundColor: "#eeac85",
+                    boxShadow: "none",
+                  },
+                  "&:active": {
+                    boxShadow: "none",
+                    backgroundColor: "#eeac85",
+                  },
+                  fontSize: "0.625vw",
+                  fontWeight: 700,
+                  textTransform: "capitalize",
+
+                  margin: "2.1354166666667vw auto",
+                }}
+                className="create-acc-btn"
+              >
+                login
+              </Button>
+             </NavLink> */}
+            </Box>
+            <Box
+              sx={{ display: "flex", justifyContent: "center", width: "20vw" }}
+            >
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "gray",
+                  fontSize: "0.975vw",
+                }}
+              >
+                {" "}
+                Already registered ?
+                <NavLink
+                  to="/login"
+                  style={{
+                    textDecoration: "none",
+                    color: mainColor,
+                    fontWeight: 500,
+                  }}
+                >
+                  {" "}
+                  login
+                </NavLink>
+              </p>
             </Box>
           </Box>
         </Box>

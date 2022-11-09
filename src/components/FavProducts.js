@@ -9,28 +9,36 @@ import {
   handleFav,
 } from "../store/FavoriteSlice";
 import { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+import { deleteFavorites, getFavorites } from "../store/favoritesSlice";
 // Requiring the lodash library
 const _ = require("lodash");
 export default function FavProducts(props) {
   //  const [data,setData]=useState(smallCartData)
-  const FavoritesArray = useSelector(
-    (state) => state.favoriteState.FavoritesArray
-  );
+  // const FavoritesState = useSelector(
+  //   (state) => state.favoriteState.FavoritesState
+  // );
+  // const dispatch = useDispatch();
+
+  // console.log("ggg",FavoritesState);
+
+ 
   const dispatch = useDispatch();
-
-  // console.log("ggg",FavoritesArray);
-
-  function handleFavClick(obj) {
-    let trueObject = { ...obj, fav: true };
-    dispatch(removeFromFavorite({ trueObject }));
+  const FavoritesState = useSelector(
+    (state) => state.favorites.favorites
+  );
+  function handleDelete(id){
+    dispatch(deleteFavorites(id))
+    dispatch(getFavorites())
   }
-  useEffect(() => {
-    console.log("bb", FavoritesArray);
-  }, []);
+  useEffect(()=>{
+    dispatch(getFavorites())
+    console.log("FavoritesStateinFAV",FavoritesState);
+  },[])
 
   return (
     <>
-      {FavoritesArray.length == 0 && (
+      {FavoritesState.length == 0 && (
         <Box sx={{ textAlign: "center",fontSize:"1.0925vw" }}>NO PRODUCT FOUND</Box>
       )}
       <Grid
@@ -39,18 +47,19 @@ export default function FavProducts(props) {
         justifyContent="space-between"
         alignItems="center"
       >
-        {FavoritesArray.map((item) => (
+        {FavoritesState.map((item) => (
           <Grid item md={5.9}>
             <BigCartInDashboard
-              id={item.id}
-              fav={item.fav}
-              img={item.img}
-              title={item.title}
-              desc={item.desc}
-              price={item.price}
-              PriceOptions={item.PriceOptions}
-              delete={props.delete}
-              handleFavClick={() => handleFavClick(item)}
+              id={item.product.id}
+              fav={true}
+              // img={item.product.image.preview_url}
+              title={item.product.title}
+              desc={item.product.description}
+              price={item.product.price}
+            
+              PriceOptions={item.product.price_options}
+              // delete={props.delete}
+              handleDelete={handleDelete}
             />
           </Grid>
         ))}

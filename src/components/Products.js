@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import React, { useState } from "react";
 import { smallCartData } from "../data";
 import BigCartInDashboard from "./BigCartInDashboard";
@@ -10,76 +10,89 @@ import {
 } from "../store/FavoriteSlice";
 import { useEffect } from "react";
 import { InsertEmoticonTwoTone } from "@material-ui/icons";
+import { getProducts } from "../store/productsSlice";
 // Requiring the lodash library
+import CircularProgress from "@mui/material/CircularProgress";
+import { getFavorites } from "../store/favoritesSlice";
 
 const _ = require("lodash");
 
 export default function Products(props) {
   // const [isItemInFav, setIsItemInFav] = useState(false);
-  const [data, setData] = useState(smallCartData);
+
   const dispatch = useDispatch();
-  const FavoritesArray = useSelector(
-    (state) => state.favoriteState.FavoritesArray
+  // const products = useSelector(
+  //   (state) => state.favoriteState.products
+  // );
+  const products = useSelector(
+    (state) => state.products.products
   );
-  // const [FavoritesArray, setFavoritesArray] = useState([]);
+  const loading = useSelector((state) => state.products.loading);
+  // const [products, setFavoritesArray] = useState([]);
 
-  function handleFavClick(obj, id) {
-    let trueObject = { ...obj, fav: true };
-    let falseObject = { ...obj, fav: false };
-    console.log(trueObject);
-    console.log(falseObject);
-    if (FavoritesArray.length == 0) {
-      dispatch(addToFavorite({ trueObject }));
-      // setFavoritesArray([...FavoritesArray, ]);
-      let index = data.indexOf(obj);
-      data[index] = trueObject;
-      setData(data);
-    } else {
-      if (
-        JSON.stringify(FavoritesArray).indexOf(JSON.stringify(trueObject)) > -1
-      ) {
-        dispatch(removeFromFavorite({ trueObject }));
-        let index = data.indexOf(obj);
-        data[index] = falseObject;
-        setData(data);
-      } else {
-        dispatch(addToFavorite({ trueObject }));
-        let index = data.indexOf(obj);
-        data[index] = trueObject;
-        setData(data);
-      }
-    }
-  }
+  const FavoritesState = useSelector((state) => state.favorites.favorites);
 
+const [arr,setArr]=useState([])
+  // let newARR=[]
   useEffect(() => {
-    console.log("FavoritesArray", FavoritesArray);
-    console.log("data", data);
+    console.log("hi Product");
+    dispatch(getFavorites())
+    dispatch(getProducts())
 
+    for(let i=0;i<products.length;i++){
+      for(let j=0;j<FavoritesState.length;j++){
+        
+        if(products[i].id===FavoritesState[j].product.id){
+
+          console.log("hob",products[i].id);
+          // setArr(arr.push(products[i].id));
+          setArr((prevArr) => ([...prevArr,products[i].id]));
+          //  newARR.push(products[i].id)
+            console.log("newwwwwwwww",arr);
+        }
+        
+        // console.log("hob",FavoritesState[0].product);
+        // console.log("job",products[0]);
+        
+      
+      } 
+    }
     
-  }, [FavoritesArray]);
+  }, []);
 
   return (
-    <Grid
+    <>
+      {loading == true && products.length==0 && (
+          <Box sx={{ width:"100vw",height:"100vh" ,display: "flex",justifyContent:"center",alignItems:"center",position:"absolute",top:0,left:0 }}>
+            <CircularProgress />
+          </Box>
+        )}
+        <Grid
       container
       direction="row"
       justifyContent="space-between"
       alignItems="center"
     >
-      {data.map((item) => (
+     
+      {products.map((item) => (
         <Grid item md={5.9}>
           <BigCartInDashboard
             id={item.id}
-            fav={item.fav}
-            img={item.img}
+            newARR={arr}
+            // fav={item.fav}
+            img={item.image.preview_url}
             title={item.title}
-            desc={item.desc}
+            desc={item.description}
             price={item.price}
-            PriceOptions={item.PriceOptions}
+          
+            PriceOptions={item.price_options}
             delete={props.delete}
-            handleFavClick={() => handleFavClick(item, item.id)}
+            // handleFavClick={() => handleFavClick(item, item.id)}
           />
         </Grid>
       ))}
     </Grid>
+    </>
+    
   );
 }

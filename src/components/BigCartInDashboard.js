@@ -4,15 +4,25 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { Gray, mainColor, secColor, whiteColor } from "../colors";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import RateReviewOutlinedIcon from "@mui/icons-material/RateReviewOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  deleteFavorites,
+  getFavorites,
+  postFavorites,
+} from "../store/favoritesSlice";
+import { useEffect } from "react";
+
 export default function BigCartInDashboard(props) {
-  // console.log("id",props.id);
+  const dispatch = useDispatch();
+  const location=useLocation()
+  // console.log("ne",props.newARR);
   // const useStyles = makeStyles(
   //   createStyles({
   //     num: {
@@ -30,22 +40,44 @@ export default function BigCartInDashboard(props) {
     })
   );
   const classes = useStyles(props);
-
+  const FavoritesState = useSelector((state) => state.favorites.favorites);
   const [num, setNum] = React.useState(25);
   const [isnumFocused, setIsnumdFocused] = React.useState(false);
   const [fav, setFav] = useState(false);
   function handleFav() {
-    setFav(!fav);
+    setFav((prev) => !prev);
+
+    console.log("hhhhhhhhhh", fav);
+    if (location.pathname=="/favorites") {
+      dispatch(deleteFavorites(props.id));
+      dispatch(getFavorites());
+    } else {
+      const product_id = props.id;
+      if (fav === false) {
+        console.log("product_id", product_id);
+        console.log("kkkkk");
+
+        dispatch(postFavorites({ product_id }));
+        dispatch(getFavorites());
+        console.log("FavoritesStateinADD", FavoritesState);
+        console.log("Favoriteeee", FavoritesState);
+      } else {
+        dispatch(deleteFavorites(product_id));
+        dispatch(getFavorites());
+        console.log("FavoritesStateinDelete", FavoritesState);
+        console.log("Favoriteeee", FavoritesState);
+      }
+    }
   }
   const handleChangeInput = (e) => {
     const re = /^[0-9\b]+$/; //rules
     if (e.target.value === "" || re.test(e.target.value)) {
       setNum(e.target.value);
     }
-   
-  }
+  };
+ 
   return (
-    <Paper elevation={3} className="BigCartInDashboard">
+    <Paper elevation={3} className="BigCartInDashboard" sx={{position:"relative"}}>
       <Grid
         container
         direction="row"
@@ -53,7 +85,10 @@ export default function BigCartInDashboard(props) {
         alignItems="flex-start"
       >
         <Grid item md={5}>
-          <NavLink to="/product">
+          <NavLink
+            to="/product"
+            onClick={() => localStorage.setItem("id", JSON.stringify(props.id))}
+          >
             <Box sx={{ width: "100%", height: "13.4375vw" }}>
               <img src={props.img} alt="" width="100%" height="100%" />
             </Box>
@@ -79,16 +114,19 @@ export default function BigCartInDashboard(props) {
 
               <FavoriteOutlinedIcon
                 sx={{
-                  fill: props.fav == true ? mainColor : "#b1afaf",
+                  fill: (fav == true || props.newARR && props.newARR.indexOf(props.id)!==-1||location.pathname=="/favorites")? mainColor : "#b1afaf",
                   cursor: "pointer",
                   fontSize: " 1.5020833333333vw",
                 }}
                 onClick={() => {
-                  props.handleFavClick();
+                  handleFav();
                 }}
               />
             </Box>
-            <Box className="SmallCart-details-desc" style={{ color: Gray }}>
+            <Box
+              className="SmallCart-details-desc"
+              style={{ color: Gray, fontSize: "0.3vw" }}
+            >
               {props.desc}{" "}
             </Box>
             {/* //////////////// */}
@@ -100,7 +138,7 @@ export default function BigCartInDashboard(props) {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
-            sx={{marginTop:"3vw"}}
+                sx={{position:"absolute",bottom:20,width:"17vw"}}
               >
                 <Grid
                   item
@@ -108,7 +146,6 @@ export default function BigCartInDashboard(props) {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                  
                   }}
                 >
                   {!isnumFocused ? (
@@ -119,29 +156,27 @@ export default function BigCartInDashboard(props) {
                       QTY: {num}
                     </span>
                   ) : (
-                 
-                      // <input
-                      //   type="number"
-                      //   autoFocus
-                      //   pattern="[0-9.]+"
-                      //   // placeholder="QTY"
-                      //   className="qtyInput"
-                      //   value={num}
-                      //   onChange={(event) => setNum(event.target.value)}
-                      //   onBlur={(event) => setIsnumdFocused(false)}
-                      // />
-                      <input
+                    // <input
+                    //   type="number"
+                    //   autoFocus
+                    //   pattern="[0-9.]+"
+                    //   // placeholder="QTY"
+                    //   className="qtyInput"
+                    //   value={num}
+                    //   onChange={(event) => setNum(event.target.value)}
+                    //   onBlur={(event) => setIsnumdFocused(false)}
+                    // />
+                    <input
                       className="qtyInput"
                       type="text"
                       autoFocus
                       placeholder="Qty"
                       value={num}
                       maxLength="10"
-                      onChange={(event)=>handleChangeInput(event)}
+                      onChange={(event) => handleChangeInput(event)}
                       onBlur={(event) => setIsnumdFocused(false)}
                       required
                     />
-                
                   )}
                   <RateReviewOutlinedIcon
                     sx={{
@@ -181,7 +216,7 @@ export default function BigCartInDashboard(props) {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="flex-start"
-                sx={{marginTop:"3vw"}}
+                sx={{position:"absolute",bottom:20,width:"17vw"}}
               >
                 <Grid item>
                   <span className="Price-options" style={{ color: mainColor }}>

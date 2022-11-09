@@ -1,13 +1,20 @@
 import { Box, Grid } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Gray, mainColor, secColor } from "../colors";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+// import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getProduct } from "../store/productSlice";
 export default function SectionTowInProduct() {
   const [fav, setFav] = useState(false);
   function handleFav() {
     setFav(!fav);
   }
+  const product = useSelector(
+    (state) => state.product.product
+  );
+  console.log("sectowoneproductttt", product);
   return (
     <Box sx={{ marginTop: "-1vw" }}>
       <Box sx={{ display:"flex",justifyContent:"space-between" }}>
@@ -16,7 +23,7 @@ export default function SectionTowInProduct() {
         className="NewProductsArrived"
         style={{ color: mainColor, textAlign: "start" }}
       >
-        Smart Headphone
+       {product&&product.title}
       </span>
       <Box sx={{marginTop:"1vw"}}>
       {fav == true ? (
@@ -42,8 +49,7 @@ export default function SectionTowInProduct() {
       </Box>
    
       <Box className="product-desc" style={{ color: Gray }}>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat{" "}
+       {product&&product.description}
       </Box>
 
       <Grid
@@ -68,7 +74,7 @@ export default function SectionTowInProduct() {
           </Grid>
           <Grid item>
             <span className="Product-ID" style={{ fontWeight: 400 }}>
-              Ky-986{" "}
+              {product&&product.product_identification}
             </span>
           </Grid>
         </Grid>
@@ -88,7 +94,7 @@ export default function SectionTowInProduct() {
           <Grid item>
             <span className="Product-ID" style={{ color: Gray }}>
               {" "}
-              Category group 1 > Category Name{" "}
+              Category group 1  Category Name{" "}
             </span>
           </Grid>
         </Grid>
@@ -116,7 +122,7 @@ export default function SectionTowInProduct() {
               className="Product-ID"
               style={{ color: Gray, textAlign: "center" }}
             >
-              3,500
+             {Object.keys(product).length !== 0 &&product.prices[0].price_1}
             </p>
           </Grid>
           <Grid item md={3}>
@@ -130,7 +136,7 @@ export default function SectionTowInProduct() {
               className="Product-ID"
               style={{ color: Gray, textAlign: "center" }}
             >
-              3,500
+                  {Object.keys(product).length !== 0 &&product.prices[1].price_2}
             </p>
           </Grid>
           <Grid item md={3}>
@@ -144,7 +150,7 @@ export default function SectionTowInProduct() {
               className="Product-ID"
               style={{ color: Gray, textAlign: "center" }}
             >
-              3,500
+                  {Object.keys(product).length !== 0 &&product.prices[2].price_3}
             </p>
           </Grid>
         </Grid>

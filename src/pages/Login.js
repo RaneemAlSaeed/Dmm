@@ -44,17 +44,20 @@ export default function Login() {
     // }
     console.log(profile);
     dispatch(postLogin(profile))
-    console.log("slice",loginState);
+    console.log("sliceyye",loginState.token);
+   
   };
+
   useEffect(()=>{
     let path = `/favorites`;
     if(loginState.status == "success"){
-      localStorage.setItem("token", JSON.stringify(loginState.token));
       navigate(path)
     }
-    console.log("slicetttttttttt",loginState);
-  },[loginState])
+    Object.keys(loginState).length !== 0 && localStorage.setItem("token", loginState.token);
 
+    console.log("slicetttttttttt",loginState.token);
+
+  },[loginState])
   function handleChange(e) {
     setProfile({
       ...profile,
@@ -175,6 +178,31 @@ export default function Login() {
               </Button>
               {/* </NavLink> */}
             </Box>
+            <Box
+          sx={{ display: "flex", justifyContent: "center", width: "20vw" }}
+        >
+          <p
+            style={{
+              textAlign: "center",
+              color: "gray",
+              fontSize: "0.975vw",
+            }}
+          >
+            {" "}
+            You don't have account ?
+            <NavLink
+              to="/profile"
+              style={{
+                textDecoration: "none",
+                color: mainColor,
+                fontWeight: 500,
+              }}
+            >
+              {" "}
+              Sign Up
+            </NavLink>
+          </p>
+        </Box>
           </Box>
         </Box>
       </Box>
